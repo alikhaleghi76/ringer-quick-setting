@@ -23,8 +23,8 @@ class SoundTileService : TileService() {
 
     private lateinit var receiver: BroadcastReceiver
 
-    override fun onTileAdded() {
-        super.onTileAdded()
+    override fun onStartListening() {
+        super.onStartListening()
 
         qsTile.state = Tile.STATE_ACTIVE
 
@@ -101,19 +101,19 @@ class SoundTileService : TileService() {
 
     }
 
-    override fun onTileRemoved() {
-        super.onTileRemoved()
+    override fun onStopListening() {
+        super.onStopListening()
         if (receiver != null)
             unregisterReceiver(receiver)
     }
 
     private fun getPermissions() {
 
-        Toast.makeText(applicationContext, getString(R.string.grant_permission), Toast.LENGTH_LONG).show()
-
         val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
         if (!notificationManager.isNotificationPolicyAccessGranted) {
+
+            Toast.makeText(applicationContext, getString(R.string.grant_permission), Toast.LENGTH_LONG).show()
 
             val intent = Intent(
                 android.provider.Settings
