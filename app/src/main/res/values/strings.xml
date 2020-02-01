@@ -1,6 +1,8 @@
 <resources>
-    <string name="app_name">SoundControl</string>
+    <string name="app_name">Ringer QS</string>
     <string name="volume">Volume</string>
     <string name="silent">Silent</string>
     <string name="vibration">Vibration</string>
+    <string name="description">change ringer mode</string>
+    <string name="grant_permission">Please provide Do Not Disturb permission.</string>
 </resources>

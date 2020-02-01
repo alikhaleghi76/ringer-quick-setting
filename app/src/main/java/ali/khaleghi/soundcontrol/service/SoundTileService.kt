@@ -10,6 +10,7 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.app.NotificationManager
 import android.service.quicksettings.Tile
+import android.widget.Toast
 
 
 class SoundTileService : TileService() {
@@ -107,6 +108,9 @@ class SoundTileService : TileService() {
     }
 
     private fun getPermissions() {
+
+        Toast.makeText(applicationContext, getString(R.string.grant_permission), Toast.LENGTH_LONG).show()
+
         val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
         if (!notificationManager.isNotificationPolicyAccessGranted) {
