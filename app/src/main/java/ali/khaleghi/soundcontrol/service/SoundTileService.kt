@@ -9,6 +9,7 @@ import android.content.Intent
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.app.NotificationManager
+import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
 import android.service.quicksettings.Tile
 import android.widget.Toast
 
@@ -119,7 +120,7 @@ class SoundTileService : TileService() {
                 android.provider.Settings
                     .ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS
             )
-
+            intent.addFlags(FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
             val closeIntent = Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS)
             sendBroadcast(closeIntent)
